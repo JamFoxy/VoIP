@@ -36,13 +36,30 @@
             margin: 5px 0;
             border-radius: 5px;
         }
+        .btn-custom {
+            background-color: #ff5722;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #e64a19;
+        }
     </style>
 </head>
 <body>
     <div class="d-flex justify-content-center">
         <div class="align-self-center" style="margin-top: 25%;" id="init">
             <input type="text" id="username" class="form-control" placeholder="Enter your username">
-            <button class="btn btn-lg btn-success" onclick="start()"> Begin </button>
+            <button class="btn btn-lg btn-custom" onclick="start()">Begin</button>
         </div>
 
         <div id="call">
@@ -50,7 +67,7 @@
             <h4 id="peerID"></h4>
             <p>Connected users</p>
             <ul id="userList"></ul>
-            <button class="btn btn-lg btn-success">Start call</button>
+            <button class="btn btn-lg btn-custom">Start call</button>
         </div>
     </div>
 
