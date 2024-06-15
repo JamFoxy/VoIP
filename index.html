@@ -3,34 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatWithMe</title>
+    <title>VoIP</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://images.wallpaperscraft.ru/image/single/tekstura_sinij_fon_50468_1920x1080.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+        }
+        #init, #call {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #init input {
+            margin-bottom: 10px;
+        }
+        #call h3, #call h4, #call p {
+            margin: 0;
+            padding: 5px;
+        }
+        #userList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #userList li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    
-
-
     <div class="d-flex justify-content-center">
         <div class="align-self-center" style="margin-top: 25%;" id="init">
-            <input type="text" id="username">
-
-            <button  class="btn btn-lg btn-success" onclick="start()"> Begin </button>
+            <input type="text" id="username" class="form-control" placeholder="Enter your username">
+            <button class="btn btn-lg btn-success" onclick="start()"> Begin </button>
         </div>
 
         <div id="call">
             <h3 id="asName"></h3>
             <h4 id="peerID"></h4>
-            <p>connected users</p>
-
-            <ul id="userList">
-
-                
-            </ul>
+            <p>Connected users</p>
+            <ul id="userList"></ul>
             <button class="btn btn-lg btn-success">Start call</button>
         </div>
-        
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -43,6 +64,17 @@
             $('#call').hide();
             $('#init').show();
         });
+
+        function start() {
+            var username = $('#username').val();
+            if (username) {
+                $('#asName').text(username);
+                $('#init').hide();
+                $('#call').show();
+            } else {
+                alert("Please enter a username");
+            }
+        }
     </script>
 </body>
 </html>
